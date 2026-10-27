@@ -1,0 +1,60 @@
+PANDUAN SETUP ADMIN Z.ZINN (sekali saja)
+==========================================
+
+PENTING
+- File ini mengubah website menjadi katalog dengan database online.
+- Jangan pernah memasukkan service_role key ke website. Gunakan hanya Project URL dan anon/public key.
+- Untuk keamanan, jangan aktifkan pendaftaran umum (sign up) untuk pengunjung. Buat akun admin sendiri di Supabase Authentication.
+
+LANGKAH 1 — Buat proyek Supabase
+1. Buka https://supabase.com/ lalu daftar/login.
+2. Buat project baru bernama misalnya zzinn-store. Simpan database password di tempat aman.
+3. Setelah project siap, buka Project Settings > API (atau bagian Connect/API Keys).
+4. Salin Project URL dan anon/public key. Jangan salin service_role/secret key.
+
+LANGKAH 2 — Buat database dan tempat foto
+1. Di dashboard Supabase, buka SQL Editor.
+2. Pilih New query.
+3. Buka file setup.sql dari paket ini, salin seluruh isinya ke SQL Editor, lalu tekan Run.
+4. Pastikan hasilnya sukses tanpa error.
+
+LANGKAH 3 — Buat akun admin
+1. Buka Authentication > Users.
+2. Pilih Add user / Create new user.
+3. Masukkan email yang kamu miliki dan buat kata sandi kuat.
+4. Jika ada pilihan konfirmasi email, buat user terkonfirmasi/confirm email.
+5. Nonaktifkan sign-up/pendaftaran publik di Authentication > Settings/Sign In, agar orang lain tidak membuat akun sendiri.
+   Catatan: kebijakan SQL memberi hak tulis kepada pengguna yang berhasil login. Jadi hanya buat akun admin yang kamu percaya.
+
+LANGKAH 4 — Isi koneksi website
+1. Buka file config.js.
+2. Ganti ISI_URL_SUPABASE_DI_SINI dengan Project URL milikmu, tetap di dalam tanda kutip.
+3. Ganti ISI_ANON_PUBLIC_KEY_DI_SINI dengan anon/public key milikmu, tetap di dalam tanda kutip.
+4. Simpan file config.js.
+
+LANGKAH 5 — Upload ke GitHub Pages
+1. Buka repository GitHub yang berisi website Z.ZINN.
+2. Upload/ganti index.html, admin.html, dan config.js ke folder yang sama (root repository).
+3. Upload juga setup.sql dan SETUP.txt boleh disimpan sebagai panduan, tetapi tidak harus dipublikasikan.
+4. Pastikan GitHub Pages aktif di Settings > Pages, dan tunggu deployment selesai.
+
+LANGKAH 6 — Pakai halaman admin
+1. Buka alamat website kamu lalu tambahkan /admin.html di belakangnya.
+   Contoh format: https://username.github.io/nama-repository/admin.html
+2. Login memakai email dan kata sandi admin yang dibuat di Supabase.
+3. Isi nama produk, harga angka saja (contoh 48900), kategori, link Shopee, dan pilih foto dari galeri.
+4. Tekan Simpan produk. Produk akan muncul di katalog utama.
+5. Untuk mengubah atau menghapus, gunakan tombol Edit atau Hapus di daftar produk.
+
+CONTOH PRODUK AWAL
+- Nama: Tas Simpel
+- Harga: 48900
+- Kategori: Aksesori
+- Link Shopee: https://s.shopee.co.id/5VWQkru4JI
+Kamu bisa menambahkan produk ini dari halaman admin setelah setup selesai.
+
+TROUBLESHOOTING
+- Kalau katalog bilang belum terhubung: periksa isi config.js dan pastikan URL/key benar.
+- Kalau login gagal: pastikan user dibuat di Authentication > Users dan kata sandi benar.
+- Kalau produk tidak tersimpan/foto gagal: jalankan setup.sql seluruhnya dan periksa kebijakan di Supabase.
+- Setelah upload file ke GitHub, tunggu beberapa menit lalu refresh website.
