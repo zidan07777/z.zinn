@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171717">
+<meta name="description" content="Z.ZINN — katalog pakaian dan aksesori fashion.">
+<title>Z.ZINN — Fashion Store</title>
+<style>
+:root{--ink:#171717;--muted:#777;--cream:#f7f5f0;--line:#e8e4dc;--accent:#b88b5a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}.topline{background:var(--ink);color:#fff;text-align:center;padding:9px 12px;font-size:11px;letter-spacing:1.8px}
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 6%;border-bottom:1px solid var(--line);gap:20px}
+.logo{font-size:26px;font-weight:800;letter-spacing:5px}.logo span{color:var(--accent)}
+nav{display:flex;gap:24px;font-size:12px;letter-spacing:1px;text-transform:uppercase}nav a:hover{color:var(--accent)}
+.hero{background:var(--cream);padding:70px 8%;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px;min-height:410px}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:bold}
+h1{font-size:clamp(38px,5vw,68px);line-height:1.02;letter-spacing:-2px;margin:18px 0}.hero p{color:#626262;line-height:1.8;max-width:450px;font-size:15px}
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:15px 23px;margin-top:14px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--ink);transition:.2s;cursor:pointer}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.hero-art{min-height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#d8cfc1,#eee9e0);position:relative;overflow:hidden}
+.hero-art:before{content:"Z";font-size:260px;font-weight:900;color:rgba(255,255,255,.55);line-height:1}
+.hero-tag{position:absolute;bottom:18px;right:18px;background:#fff;padding:12px 16px;font-size:10px;letter-spacing:2px}
+.section{padding:64px 6%}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px;gap:20px}
+.section h2{font-size:30px;letter-spacing:-.7px;margin:8px 0}.section-head p{font-size:13px;color:var(--muted);margin:0}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}.filter{border:1px solid var(--line);background:#fff;padding:10px 15px;font-size:11px;letter-spacing:.6px;cursor:pointer}.filter.active,.filter:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.product{min-width:0}.product-image{aspect-ratio:4/5;background:#f1eee8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover;display:block}.placeholder{font-size:42px;color:#c3b8a8;font-weight:800;letter-spacing:3px}
+.badge{position:absolute;top:12px;left:12px;background:#fff;padding:7px 9px;font-size:9px;letter-spacing:1px;text-transform:uppercase}
+.product h3{font-size:14px;margin:15px 0 7px}.category{font-size:10px;color:var(--muted);letter-spacing:1.3px;text-transform:uppercase}.price{font-weight:bold;font-size:14px;margin:9px 0 12px}
+.product .btn{margin-top:0;padding:12px 14px;width:100%;text-align:center;font-size:10px}
+.status{padding:12px;background:#f7f5f0;color:#555;font-size:13px;margin-bottom:18px}
+.note{background:#f7f5f0;text-align:center;padding:38px 20px}.note h2{font-size:25px;margin:0 0 10px}.note p{color:#666;font-size:13px;line-height:1.8;max-width:600px;margin:0 auto}
+footer{background:var(--ink);color:#fff;padding:35px 6%;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .logo{font-size:20px}footer p{color:#bdbdbd;font-size:11px;line-height:1.7}footer a{font-size:12px;border-bottom:1px solid #888;padding-bottom:4px}
+.small{font-size:10px;color:#aaa;width:100%;border-top:1px solid #393939;padding-top:16px}
+
+.search-section{padding:22px 6%;background:#fff;border-bottom:1px solid var(--line)}
+.search-wrap{max-width:900px;margin:0 auto}
+.search-wrap label{display:block;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px}
+.search-wrap input{width:100%;padding:15px 16px;border:1px solid #d8d2c8;border-radius:3px;background:#faf9f6;font:inherit;font-size:15px;outline:none}
+.search-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 2px rgba(184,139,90,.12)}
+.search-hint{display:block;color:var(--muted);font-size:11px;margin-top:7px}
+.store-bio{max-width:900px;margin:18px auto 0;padding:18px 20px;background:var(--cream);border:1px solid var(--line);border-radius:4px;color:#555;font-size:14px;line-height:1.8;white-space:pre-wrap}
+.social-links{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:16px auto 0}
+.social-links a{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #d8d2c8;border-radius:50%;color:var(--ink);transition:.2s}
+.social-links a:hover{background:var(--accent);border-color:var(--accent);color:#fff}.social-links svg{width:20px;height:20px;fill:currentColor}
+
+@media(max-width:800px){header{padding:18px 5%;}nav{gap:12px;font-size:10px}.hero{padding:45px 6%;grid-template-columns:1fr}.hero-art{min-height:190px}.hero-art:before{font-size:190px}.section{padding:48px 5%}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}.section-head{display:block}.section-head p{margin-top:10px}}
+@media(max-width:420px){.logo{font-size:21px;letter-spacing:3px}nav{gap:9px}.hero h1{font-size:42px}.product h3{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="topline">CURATED STYLE · EVERYDAY ESSENTIALS</div>
+<header>
+  <a class="logo" href="#">Z<span>.</span>ZINN</a>
+  <nav><a href="#produk">Produk</a><a href="#tentang">Tentang</a><a href="#shopee">Shopee</a></nav>
+</header>
+
+<section class="search-section" aria-label="Cari produk">
+  <div class="search-wrap">
+    <label for="productSearch">Cari produk</label>
+    <input id="productSearch" type="search" placeholder="Ketik nama produk, misalnya Tas Simpel..." autocomplete="off">
+    <span class="search-hint">Cari berdasarkan nama produk.</span>
+    <div id="storeBio" class="store-bio" hidden></div>
+    <div id="socialLinks" class="social-links" aria-label="Media sosial toko" hidden></div>
+  </div>
+</section>
+<main>
+<section class="section" id="produk">
+  <div class="section-head"><div><div class="eyebrow">The collection</div><h2>Produk pilihan</h2></div><p>Produk terbaru dari Z.ZINN.</p></div>
+  <div class="filters">
+    <button class="filter active" data-filter="all">Semua</button>
+    <button class="filter" data-filter="Pakaian">Pakaian</button>
+    <button class="filter" data-filter="Aksesori">Aksesori</button>
+  </div>
+  <div id="status" class="status">Memuat produk…</div>
+  <div class="grid" id="productGrid"></div>
+</section>
+<section class="note" id="tentang"><div class="eyebrow">About Z.ZINN</div><h2>Style that feels like you.</h2>
+<p>Z.ZINN adalah etalase fashion untuk menemukan inspirasi gaya dan produk pilihan. Website ini menampilkan katalog; pembelian dilanjutkan melalui tautan produk yang kamu pasang.</p></section>
+<section class="section" id="shopee" style="text-align:center;padding-top:45px;padding-bottom:45px"><div class="eyebrow">Shop online</div><h2 style="margin:10px 0">Temukan produk pilihanmu</h2><p style="color:#777;font-size:13px">Pilih produk untuk melihat tautan pembeliannya.</p></section>
+</main>
+<footer><div><div class="logo">Z<span style="color:#b88b5a">.</span>ZINN</div><p>Fashion & accessories<br>Find your everyday style.</p></div><a href="#produk">Lihat koleksi ↑</a><div class="small">© <span id="year"></span> Z.ZINN. Fashion Store.</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+const grid=document.getElementById("productGrid"), statusBox=document.getElementById("status");
+let products=[], activeFilter="all", searchQuery="";
+document.getElementById("year").textContent=new Date().getFullYear();
+function rupiah(value){return new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(Number(value)||0)}
+function render(){
+ grid.innerHTML="";
+ const filtered=products.filter(p=>(activeFilter==="all"||p.category===activeFilter)&&String(p.name||"").toLocaleLowerCase("id-ID").includes(searchQuery));
+ if(!filtered.length){grid.innerHTML=`<p style="color:#777">${searchQuery ? "Produk tidak ditemukan. Coba kata kunci lain." : "Belum ada produk pada kategori ini."}</p>`;return}
+ filtered.forEach(p=>{
+  const card=document.createElement("article");card.className="product";
+  const visual=p.image_url?`<img src="${escapeAttr(p.image_url)}" alt="${escapeAttr(p.name)}" loading="lazy">`:'<div class="placeholder">Z.</div>';
+  card.innerHTML=`<div class="product-image">${visual}<span class="badge">${escapeHtml(p.category)}</span></div><h3>${escapeHtml(p.name)}</h3><div class="category">Z.ZINN collection</div><div class="price">${rupiah(p.price)}</div><a class="btn" href="${escapeAttr(p.shopee_url)}" target="_blank" rel="noopener noreferrer">Lihat di Shopee ↗</a>`;
+  grid.appendChild(card);
+ });
+}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function escapeAttr(s){return escapeHtml(s)}
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeFilter=b.dataset.filter;render()}));
+document.getElementById("productSearch").addEventListener("input",e=>{searchQuery=e.target.value.trim().toLocaleLowerCase("id-ID");render();});
+
+const socialMeta={
+ facebook:{label:"Facebook",icon:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8z"/></svg>'},
+ instagram:{label:"Instagram",icon:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2zm5 3.1a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4zm0 2.2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.1-3.5a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg>'},
+ whatsapp:{label:"WhatsApp",icon:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9.8 9.8 0 0 0-8.4 14.8L2.3 22l5.4-1.4A10 10 0 1 0 12 2zm0 2a7.8 7.8 0 0 1 0 15.6 7.7 7.7 0 0 1-3.9-1.1l-.4-.2-2.5.7.7-2.4-.3-.4A7.8 7.8 0 0 1 12 4zm-3 3.8c-.2 0-.5.1-.7.4-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.6 3.9 3.5 1.9.8 2.3.6 2.7.6.4-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3l-1.7-.8c-.2-.1-.4-.1-.6.2l-.8 1c-.2.2-.3.2-.6.1-.3-.1-1.1-.4-2-1.2-.7-.6-1.2-1.4-1.3-1.7-.1-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.5-.6-.5z"/></svg>'},
+ youtube:{label:"YouTube",icon:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>'},
+ twitter:{label:"Twitter / X",icon:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.4l7.3-8.4L1.8 2h6.5l4.5 6.8zm-1.1 18h1.7L7.3 3.9H5.5z"/></svg>'}
+};
+function safeHttpUrl(value){try{const u=new URL(String(value||"").trim());return ["http:","https:"].includes(u.protocol)?u.href:""}catch{return ""}}
+async function loadStoreSettings(){
+ const bio=document.getElementById("storeBio"),social=document.getElementById("socialLinks");
+ if(!window.ZZINN_CONFIG||!ZZINN_CONFIG.url||!ZZINN_CONFIG.anonKey||ZZINN_CONFIG.url.includes("ISI_URL"))return;
+ try{
+  const client=window.supabase.createClient(ZZINN_CONFIG.url,ZZINN_CONFIG.anonKey);
+  const {data,error}=await client.from("site_settings").select("bio,facebook,instagram,whatsapp,youtube,twitter").eq("id",1).maybeSingle();
+  if(error)throw error;
+  if(data&&String(data.bio||"").trim()){bio.textContent=data.bio;bio.hidden=false}else{bio.hidden=true}
+  const links=[];
+  Object.keys(socialMeta).forEach(key=>{const url=safeHttpUrl(data?.[key]);if(url){const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener noreferrer";a.setAttribute("aria-label",socialMeta[key].label);a.title=socialMeta[key].label;a.innerHTML=socialMeta[key].icon;links.push(a)}});
+  social.replaceChildren(...links);social.hidden=!links.length;
+ }catch(e){console.warn("Bio/media sosial belum bisa dimuat. Pastikan tabel site_settings telah dibuat di Supabase.",e)}
+}
+
+async function loadProducts(){
+ if(!window.ZZINN_CONFIG||!ZZINN_CONFIG.url||!ZZINN_CONFIG.anonKey||ZZINN_CONFIG.url.includes("ISI_URL")){
+  statusBox.textContent="Website belum terhubung ke database. Ikuti panduan SETUP.txt.";
+  return;
+ }
+ try{
+  const client=window.supabase.createClient(ZZINN_CONFIG.url,ZZINN_CONFIG.anonKey);
+  const {data,error}=await client.from("products").select("*").order("created_at",{ascending:false});
+  if(error)throw error;
+  products=data||[];statusBox.style.display="none";render();
+ }catch(e){statusBox.textContent="Produk belum bisa dimuat. Periksa pengaturan database Supabase.";console.error(e)}
+}
+loadProducts();
+loadStoreSettings();
+</script>
+</body></html>
